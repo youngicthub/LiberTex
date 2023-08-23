@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Libertex Trades</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png"> -->
+
+    <link rel="manifest" href="site.php">
+    <link rel="apple-touch-icon" href="icon.php">
+    <link href="../images/rinologo.jpeg" rel="shortcut icon">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+   
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+    <!-- header -->
+    {{>header}}
+    <!-- #/ header -->
+
+    <!-- sidebar -->
+    {{>sidebar}}
+    <!-- #/ sidebar -->
+
+    <div class="content-body">
+
+        <div class="walet-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card currency-card-rounded">
+                            <div class="card-body rounded bitcoin">
+                                <div class="currency-card--icon pull-right">
+                                    <i class="fa fa-money text-light"></i>
+                                </div>
+                                <h4>Portfolio</h4>
+                                <h2>
+                                    <span>{{user.balance}}.00</span> USD
+                                </h2>
+                                <p>Trade total balance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card currency-card-rounded">
+                            <div class="card-body rounded ethereum">
+                                <div class="currency-card--icon pull-right">
+                                    <i class="fa fa-money text-light"></i>
+                                </div>
+                                <h4>Spot</h4>
+                                <h2>
+                                    <span>{{user.capital}}.00</span> USD
+                                </h2>
+                                <p>Your total deposit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card currency-card-rounded">
+                            <div class="card-body rounded ripple">
+                                <div class="currency-card--icon pull-right">
+                                    <i class="fa fa-money text-light"></i>
+                                </div>
+                                <h4>APR</h4>
+                                <h2>
+                                    <span>{{user.profit}}.00</span> USD
+                                </h2>
+                                <p>Trade Profit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3" style="display: none">
+                        <div class="card currency-card-rounded">
+                            <div class="card-body rounded litecoin">
+                                <div class="currency-card--icon pull-right">
+                                    <i class="fa fa-signal text-light"></i>
+                                </div>
+                                <h4>Trade Level</h4>
+                                <h2>
+                                    <span></span>
+                                </h2>
+                                <p>Current Trade Level</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-3"></div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="accordion accordion__walet">
+                            <div class="card walet-info-card rounded-0">
+                                <div class="card-header">
+                                    <h4 class="mb-0" data-toggle="collapse" data-target="#walet-info-one"
+                                        aria-expanded="true" aria-controls="walet-info-one">
+                                        Wallet Address
+                                        <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                    </h4>
+                                </div>
+                                <div id="walet-info-one" class="collapse show">
+                                    <div class="card-body">
+                                        <div class="walet-title">
+                                            <i class="fa fa-money" title="BTC"></i>
+                                            <h6>
+                                                Total Balance
+                                            </h6>
+                                            <p>{{user.balance}}.00 USD</p>
+                                        </div>
+                                        <div class="walet-details">
+                                            <div class="input-group m-b-30">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                {{!-- <input type="text" class="form-control walet-address" id=""
+                                                    value="{{user.wallet}}"> --}}
+                                                <select style="border: 1px solid #bbb;" name="" id="walletList">
+                                                    {{#each accounts}}
+                                                    <option>Bank/Wallet address</option>
+                                                    <option value="{{account_number_or_wallet}}">
+                                                        {{account_number_or_wallet}}</option>
+                                                    {{/each}}
+                                                </select>
+                                                <span class="input-group-addon" id="copyAccount">
+                                                    Copy
+                                                    <i class="fa fa-clipboard" aria-hidden="true"></i>
+                                                </span>
+                                                <input type="text" id="prevCopy" style="display: none;">
+                                            </div>
+                                            <a href="/account">Add account</a>
+                                        </div>
+                                        <a href="/deposit" class="btn btn-success btn-block m-t-30">Make Deposit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12">
+                        <div class="accordion accordion__walet">
+                            <div class="card walet-info-card rounded-0">
+                                <div class="card-header">
+                                    <h4 class="mb-0" data-toggle="collapse" data-target="#walet-info-one"
+                                        aria-expanded="true" aria-controls="walet-info-one">
+                                        Referrals
+                                        <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                    </h4>
+                                </div>
+                                <div id="walet-info-one" class="collapse show">
+                                    <div class="card-body">
+                                        <div class="walet-title">
+                                            <i class="fa fa-money"></i>
+                                            <h6>
+                                                Referal Bonus
+                                            </h6>
+                                            <p>{{user.ref_points}}.00 USD</p>
+                                        </div>
+                                        <div class="walet-details">
+                                            <div class="walet-status">
+                                                <div id="table-two" class="collapse show table-responsive">
+                                                    <table class="table m-b-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Name</th>
+                                                                <th scope="col">Reg Date</th>
+                                                                <th scope="col">(%)</th>
+                                                                <th scope="col">Bonus</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {{#each refList}}
+                                                            <tr>
+                                                                <td>{{name}}</td>
+                                                                <td>{{date}}</td>
+                                                                <td>{{point}}</td>
+                                                                <td>{{capital}}</td>
+                                                            </tr>
+                                                            {{/each}}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <h4>Referral Link</h4>
+                                                    <div class="input-group m-b-30">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" class="form-control walet-address"
+                                                            id="ref_url"
+                                                            value="https://Libertex Trades.com/signup?ref={{user.ref_code}}"
+                                                            readonly>
+                                                        <span class="input-group-addon" id="copyRefLink">
+                                                            Copy
+                                                            <i class="fa fa-clipboard" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                    <a href="/account">Add account</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="copyright">&copy; Copyright 2023 by Libertex Trades. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Modernizr-3 -->
+            <!-- jQuery -->
+            <script src="../assets/plugins/common/common.min.js"></script>
+
+
+            <!-- custom scripts -->
+            <script src="js/scripts.js"></script>
+            <script>
+                let ref_url = document.getElementById('ref_url')
+                document.getElementById('copyRefLink').addEventListener('click', e => {
+                    ref_url.select()
+                    document.execCommand('copy')
+                    e.target.textContent = 'Copied'
+                    e.target.style.backgroundColor = 'green'
+                    e.target.style.color = 'white'
+                    setTimeout(() => {
+                        e.target.textContent = 'Copy'
+                        e.target.style.backgroundColor = 'white'
+                        e.target.style.color = 'black'
+                    }, 1500)
+                })
+            </script>
+
+
+
+            <script>
+                document.getElementById('copyAccount').addEventListener('click', (e) => {
+                    let prevCopy = document.getElementById('prevCopy')
+                    prevCopy.style.display = 'block'
+                    prevCopy.value = document.getElementById('walletList').value
+                    prevCopy.select()
+                    document.execCommand('copy')
+
+                    e.target.textContent = 'Copied'
+                    e.target.style.backgroundColor = 'green'
+                    e.target.style.color = 'white'
+                    prevCopy.style.display = 'none'
+                    setTimeout(() => {
+                        e.target.textContent = 'Copy'
+                        e.target.style.backgroundColor = 'white'
+                        e.target.style.color = 'black'
+                    }, 1500)
+                })
+
+            </script>
+</body>
+  {{!-- <script src="//code.tidio.co/ivorokqnnw4n2dgvdeacw3c9s1j5fvhr.js" async></script> --}}
+
+  <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e245bf7aad08bddb94ad4831f1c30bc84dbd6e8a';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+</html>

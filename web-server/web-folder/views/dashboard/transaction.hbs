@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Libertex Trades</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png"> -->
+
+    <link rel="manifest" href="site.php">
+    <link rel="apple-touch-icon" href="icon.php">
+    <link href="../images/rinologo.jpeg" rel="shortcut icon">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+   
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    {{>header}}
+    {{>sidebar}}
+
+    <!-- #/ sidebar -->
+
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-title">Marketcap</h2>
+                    <h2 style="color: green; text-align: center">{{successMessage}}</h2>
+                    <p style="color: cornflowerblue; text-align: center">{{successNote}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="marketcap-section">
+            <div class="container-fluid">
+                <div class="row m-b-30">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card marketcap-currency rounded-5">
+                            <div class="card-body">
+                                <div class="total-value">
+                                    <h4>Portfolio</h4>
+                                    <h2>${{user.balance}}.00</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card marketcap-currency rounded-5">
+                            <div class="card-body">
+                                <div class="total-value">
+                                    <h4>Spot</h4>
+                                    <h2>${{user.capital}}.00</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card marketcap-currency rounded-5">
+                            <div class="card-body">
+                                <div class="total-value">
+                                    <h4>APR</h4>
+                                    <h2>${{user.profit}}.00</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-t-25">
+
+                    <div class="col-12">
+                        <div class="accordion table-data">
+                            <div class="card rounded-0">
+                                <div class="card-header">
+                                    <h4 class="mb-0" data-toggle="collapse" data-target="#table-two"
+                                        aria-expanded="true" aria-controls="table-two">
+                                        Recent Transactions
+                                        <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                    </h4>
+                                </div>
+                                <div id="table-two" class="collapse show table-responsive" style="">
+                                    <table class="table m-b-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Method</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+                                        {{#each transaction}}
+                                        <tbody>
+                                            <tr>
+                                                <td>{{amount}}</td>
+                                                <td>{{method}}</td>
+                                                <td>{{type}}</td>
+                                                <td>{{date}}</td>
+                                                <td>{{status}}</td>
+                                            </tr>
+                                        </tbody>
+                                        {{/each}}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="copyright">&copy; Copyright 2023 by Libertex Trades. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Modernizr-3 -->
+        <!-- jQuery -->
+        <script src="../assets/plugins/common/common.min.js"></script>
+
+
+        <!-- custom scripts -->
+        <script src="js/scripts.js"></script>
+
+
+</body>
+
+  {{!-- <script src="//code.tidio.co/ivorokqnnw4n2dgvdeacw3c9s1j5fvhr.js" async></script> --}}
+
+  <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e245bf7aad08bddb94ad4831f1c30bc84dbd6e8a';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+<!-- Mirrored from demo.tortoizthemes.com/paito/main/marketcap.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2020 01:17:18 GMT -->
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Libertex Trades</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png"> -->
+
+    <link rel="manifest" href="site.php">
+    <link rel="apple-touch-icon" href="icon.php">
+    <link href="../images/rinologo.jpeg" rel="shortcut icon">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    {{>header}}
+    <!-- #/ header -->
+
+
+    <!-- sidebar -->
+    {{>sidebar}}
+    <!-- #/ sidebar -->
+
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-title">Add Accounts</h2>
+                    <h2 style="text-align: center; color: green">{{successMessage}}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-25">
+                            <div class="card-title mt-4 pl-4">
+                                <h4>Existing accounts</h4>
+                            </div>
+                            <div id="table-two" class="card-body table-responsive">
+                                <table class="table m-b-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Acc No. /Wallet</th>
+                                            <th scope="col">Acc Name/Type</th>
+                                            <th scope="col">Bank Name/Crypto</th>
+                                            <th scope="col">Routing No.</th>
+                                            <th scope="col"><input type="radio"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each accounts}}
+                                        <tr>
+                                            <td>{{account_number_or_wallet}}</td>
+                                            <td>{{account_name_or_type}}</td>
+                                            <td>{{bank_name_or_crypto}}</td>
+                                            <td>{{routing_no}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="login-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-8 mb-4">
+                        <div class="card register-card">
+                            <div class="card-body">
+                                <h2 class="card-title">Add Bank Account</h2>
+                                <form method="post" action="/add_bank_account">
+                                    <div class="form-group">
+                                        <input type="number" name="r_number" maxlength="12" class="form-control m-b-30"
+                                            aria-describedby="emailHelp" placeholder="Routing Number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" maxlength="12" name="a_number" class="form-control m-b-30"
+                                            aria-describedby="emailHelp" placeholder="Account Number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="b_name" class="form-control m-b-30"
+                                            placeholder="Bank Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="a_name" class="form-control m-b-30"
+                                            placeholder="Account Name" required>
+                                    </div>
+                                    <button type="submit" name="save_account"
+                                        class="btn btn-block bg-success m-b-30 submit">Add Account</button>
+                                    <a href="/deposit" class="register-btn">
+                                        Deposit Now
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-4">
+                        <div class="card register-card">
+                            <div class="card-body">
+                                <h2 class="card-title">Add Crypto Wallet</h2>
+                                <form method="post" action="/add_crypto_account">
+                                    <div class="form-group">
+                                        <input type="text" name="wallet_addr" class="form-control m-b-30"
+                                            aria-describedby="emailHelp" placeholder="Wallet Address">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select name="coin" class="form-control m-b-30">
+                                            <option value="BTC">BTC</option>
+                                            <option value="ETH">ETH</option>
+                                            <option value="LTC">LTC</option>
+                                            <option value="USDC">USDC</option>
+                                            <option value="USDT">USDT</option>
+                                            <option value="BNB">BNB</option>
+                                            <option value="BUSD">BUSD</option>
+                                            <option value="XRP">XRP</option>
+                                            <option value="ADA">ADA</option>
+                                            <option value="SOL">SOL</option>
+                                        </select>
+                                    </div>
+
+                                    <button type="submit" name="save_wallet"
+                                        class="btn btn-block bg-success m-b-30 submit">Add wallet</button>
+                                    <a href="/deposit" class="register-btn">
+                                        Deposit Now
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="marketcap-category-chart">
+
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header">
+                                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        <table class="table table-responsive">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="coin-serial" scope="col">01</td>
+                                                    <td class="coin-name" scope="col">
+                                                        <i class="cc BTC"></i> Bitcoin
+                                                    </td>
+                                                    <td class="coin-value" scope="col">$130,525,066,827
+                                                    </td>
+                                                    <td class="coin-price" scope="col">$7,745.91</td>
+                                                    <td class="coin-volume" scope="col">$11,747,400,000</td>
+                                                    <td class="coin-supply" scope="col">16,850,837 BTC</td>
+                                                    <td class="price-change" scope="col">+ 23.86%</td>
+                                                    <td class="coin-graph" scope="col">
+                                                        <i class="fa pull-right accordion__angle--animated"
+                                                            aria-hidden="true"></i> Price Graph
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </a>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="trading-view">
+                                            <div>
+                                                <script>
+                                                    baseUrl = "https://widgets.cryptocompare.com/";
+                                                    var scripts = document.getElementsByTagName("script");
+                                                    var embedder = scripts[scripts.length - 1];
+                                                    var cccTheme = {
+                                                        "General": {
+                                                            "borderWidth": "1px"
+                                                        },
+                                                        "Chart": {
+                                                            "fillColor": "rgba(225,180,38,0.2)"
+                                                        }
+                                                    };
+                                                    (function () {
+                                                        var appName = encodeURIComponent(window.location.hostname);
+                                                        if (appName == "") {
+                                                            appName = "local";
+                                                        }
+                                                        var s = document.createElement("script");
+                                                        s.type = "text/javascript";
+                                                        s.async = true;
+                                                        var theUrl = baseUrl + 'serve/v3/coin/chart?fsym=BTC&tsyms=USD,EUR,CNY,GBP';
+                                                        s.src = theUrl + (theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                                                        embedder.parentNode.appendChild(s);
+                                                    })();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">&copy; Copyright 2023 by Libertex Trades. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+
+
+</body>
+  {{!-- <script src="//code.tidio.co/ivorokqnnw4n2dgvdeacw3c9s1j5fvhr.js" async></script> --}}
+  <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e245bf7aad08bddb94ad4831f1c30bc84dbd6e8a';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+</html>

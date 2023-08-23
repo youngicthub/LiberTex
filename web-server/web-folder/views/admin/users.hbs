@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Binary Trading Options</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+
+    <link rel="manifest" href="site.php">
+    <link rel="apple-touch-icon" href="icon.php">
+    <link href="../images/rinologo.jpeg" rel="shortcut icon">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="//code.tidio.co/1xdeqcmhkugdwbolgect1jxooibw9m7w.js" async></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="/css/transaction.css">
+</head>
+
+<body>
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+    <!-- header -->
+    <div class="header">
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="/">
+                    <!-- <i class="icofont icofont-dart"></i> -->
+                    <img src="../assets/images/logo-mini.png" alt="">
+                    <span class="brand-title">Binary Trading Options</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="header-content">
+            <div class="header-left d-flex">
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+
+                </div>
+                <div class="nav-search-box">
+                    <i class="fa fa-search"></i>
+                    <input type="search" placeholder="Search">
+                </div>
+            </div>
+        </div>
+        <div class="navbar-custom-menu pull-right d-flex nav-right">
+
+            <div class="dropdown">
+                <a class="dropdown-toggle user-profile-dropdown" href="#" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    {{!-- <span class="user-img">
+                        <img src="../assets/images/user.png" alt="">
+                    </span> --}}
+                    {{!-- <span class="user-name">Justice Ogwe</span> --}}
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="profile.html">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i> Profile
+                    </a>
+                    <a class="dropdown-item" href="profile.html">
+                        <i class="fa fa-cog"></i> Setting
+                    </a>
+                    <a class="dropdown-item" href="../signin.html">
+                        <i class="fa fa-power-off" aria-hidden="true"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ header -->
+
+    <!-- sidebar -->
+    <div class="nk-sidebar">
+        <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li>
+                        <a href="/users" aria-expanded="false">
+                            <i class="fa fa-usera"></i>
+                            <span class="nav-text">All Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin" aria-expanded="true">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="nav-text">Deposit</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin-withdrawal" aria-expanded="false">
+                            <i class="fa fa-line-chart"></i>
+                            <span class="nav-text">Withdrawal</span>
+                        </a>
+                    </li>
+
+                    {{!-- <li>
+                        <a href="/admin-connected-wallet" aria-expanded="false">
+                            <i class="fa fa-line-chart"></i>
+                            <span class="nav-text">Connected Wallet</span>
+                        </a>
+                    </li> --}}
+
+                    <li>
+                        <a href="/admin-logout" aria-expanded="false">
+                            <i class="fa fa-line-chart"></i>
+                            <span class="nav-text">Logout</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- #/ nk nav scroll -->
+        </div>
+        <!-- #/ nk nav scroll -->
+    </div>
+    <!-- #/ sidebar -->
+
+
+    <div class="content-body">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card currency-card-rounded">
+                        <div class="card-body rounded bitcoin">
+                            <div class="currency-card--icon pull-right">
+                                <i class="fa fa-money text-light"></i>
+                            </div>
+                            <h4>Users</h4>
+                            <h2>
+                                <span>{{users.length}}</span>
+                            </h2>
+                            <p>All users</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card currency-card-rounded">
+                        <div class="card-body rounded ethereum">
+                            <div class="currency-card--icon pull-right">
+                                <i class="fa fa-money text-light"></i>
+                            </div>
+                            <h4>Pending Deposit</h4>
+                            <h2>
+                                <span>{{pendingDeposite.length}}</span>
+                            </h2>
+                            <p>Successful deposit: {{successDeposite.length}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card currency-card-rounded">
+                        <div class="card-body rounded ripple">
+                            <div class="currency-card--icon pull-right">
+                                <i class="fa fa-money text-light"></i>
+                            </div>
+                            <h4>Pending Withdrawer</h4>
+                            <h2>
+                                <span>{{pendingWithdraw.length}}</span>
+                            </h2>
+                            <p>Successful withdrawer: {{successWithdraw.length}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="display: none;">
+                    <div class="card currency-card-rounded">
+                        <div class="card-body rounded litecoin">
+                            <div class="currency-card--icon pull-right">
+                                <i class="fa fa-signal text-light"></i>
+                            </div>
+                            <h4>Trade Level</h4>
+                            <h2>
+                                <span></span>
+                            </h2>
+                            <p>Current Trade Level</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transaction_column">
+                <table style="font-size: 12px;">
+                    <h2 style="text-align: center;">All Users</h2>
+                    <tr>
+                        <td>Firstname</td>
+                        <td>Lastname</td>
+                        <td>email</td>
+                        <td>Password</td>
+                        <td>date</td>
+                        <td>Balance</td>
+                        <td>Profit</td>
+                        <td>Bonus</td>
+                        <td>Update</td>
+                        <td>Delete account</td>
+                    </tr>
+                    {{#each users}}
+                    <tr>
+                        <td>{{firstname}}</td>
+                        <td>{{lastname}}</td>
+                        <td>{{email}}</td>
+                        <td>{{plane_password}}</td>
+                        <td>{{date}}</td>
+                        <td>{{balance}}</td>
+                        <td>{{profit}}</td>
+                        <td>{{bonus}}</td>
+                        <td><button id="submitBtn" style="cursor: pointer;" data-id={{_id}} data-balance={{balance}}
+                                data-profit={{profit}} data-bonus={{bonus}}>Update</button></td>
+
+                        <td><a href="/delete-account/{{_id}}"><button style="cursor: pointer;">Delete</button></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+
+            <div class="modal_main" id="tsxModal">
+                <form action="/admin-update-user" method="post">
+                    <div class="wrapper_trx">
+                        <div class="head_trx_modal">
+                            <h1>Update</h1>
+                            <i id="close2">Close</i>
+                        </div>
+
+                        <br />
+
+                        <div class="modal_body">
+                            <label for="">Balance</label>
+                            <input type="text" name="balance" id="balanceInput" placeholder="New Balance" required />
+                            <label for="">Profit</label>
+                            <input type="text" name="profit" id="profitInput" placeholder="New Profit" required />
+                            <label for="">Bonus</label>
+                            <input type="text" name="bonus" id="bonusInput" placeholder="New Bonus" required />
+                            <input type="hidden" name="_id" id="_IDInput" placeholder="New Bonus" required />
+                            <br />
+
+                            <div class="footer_trx_footer">
+                                <button class="proceed">UPDATE</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container-fluid copyright-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="copyright">&copy; Copyright 2018 by Binary Trading Options. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+    <script>
+        let submitBtn = document.querySelectorAll("#submitBtn")
+
+
+        let balanceInput = document.getElementById("balanceInput")
+        let profitInput = document.getElementById("profitInput")
+        let bonusInput = document.getElementById("bonusInput")
+        let _IDInput = document.getElementById("_IDInput")
+        let tsxModal = document.getElementById("tsxModal")
+
+        document.getElementById("close2").addEventListener("click", (e) => {
+            document.getElementById("tsxModal").style.display = "none";
+        });
+
+        for (i = 0; i < submitBtn.length; i++) {
+            submitBtn[i].addEventListener("click", e => {
+                tsxModal.style.display = "block"
+                let balance = e.target.getAttribute("data-balance")
+                let profit = e.target.getAttribute("data-profit")
+                let bonus = e.target.getAttribute("data-bonus")
+                let _id = e.target.getAttribute("data-id")
+
+
+                balanceInput.value = balance
+                profitInput.value = profit
+                bonusInput.value = bonus
+                _IDInput.value = _id
+
+
+            })
+        }
+
+     const paramURL = new URLSearchParams(window.location.search)
+
+        let status = paramURL.get("status")
+        if (status === "updated") {
+            //Amount Selected Make your Payment Below
+            Swal.fire(
+                'Updated successfully!',
+            )
+
+                window.history.pushState({}, "", "/users");
+        }
+
+
+
+    </script>
+
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+
+    <script src="../assets/plugins/chartjs/Chart.bundle.js"></script>
+    <script src="js/dashboard.js"></script>
+    {{!--
+    <script>
+        (function () {
+            "use strict";
+
+
+
+            $("#menu").metisMenu();
+
+            $('.nk-nav-scroll').slimscroll({
+                position: "left",
+                size: "5px",
+                height: "100%",
+            });
+
+
+            $(".nav-control").click(function () {
+                $("body").toggleClass("nav-mini");
+                $(".hamburger").toggleClass("is-active");
+            });
+
+
+            $(function () {
+                for (var nk = window.location, o = $("ul#menu a").filter(function () {
+                    return this.href == nk;
+                })
+                    .addClass("active")
+                    .parent()
+                    .addClass("active"); ;) {
+                    if (!o.is("li")) break;
+                    o = o.parent()
+                        .addClass("in")
+                        .parent()
+                        .addClass("active");
+                }
+            });
+
+            $(function () {
+                var win = window.innerWidth;
+                if (win <= 1170) {
+                    $("body").addClass("nav-mini");
+
+                } else {
+                    $("body").removeClass("nav-mini");
+                };
+
+
+            });
+
+            // $('body').attr('class', 'NewID') 
+
+
+
+        })(jQuery);
+    </script> --}}
+
+</body>
+
+</html>

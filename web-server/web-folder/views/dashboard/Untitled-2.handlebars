@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Deposit | Libertex Trades</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png"> -->
+
+    <link rel="manifest" href="site.php">
+    <link rel="apple-touch-icon" href="icon.php">
+    <link href="../images/rinologo.jpeg" rel="shortcut icon">
+    <link rel="stylesheet" href="/css/transaction.css">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+ {{!-- <script src="//code.tidio.co/1xdeqcmhkugdwbolgect1jxooibw9m7w.js" async></script> --}}
+
+ <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e245bf7aad08bddb94ad4831f1c30bc84dbd6e8a';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+    <script>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement(
+            {
+              pageLanguage: "en",
+            },
+            "google_translate_element"
+          );
+        }
+      </script>
+      <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>   
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    {{>header}}
+    {{>sidebar}}
+    <!-- #/ sidebar -->
+
+    <div class="content-body">
+
+         <div class="body_wrapper">
+    
+    <h1>Deposit</h1>
+    <br />
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright">
+        <a
+          href="https://www.tradingview.com/"
+          rel="noopener nofollow"
+          target="_blank"
+          ><span class="blue-text"></span
+        ></a>
+      </div>
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        async
+      >
+          {
+          "symbols": [
+            {
+              "proName": "FOREXCOM:SPXUSD",
+              "title": "S&P 500"
+            },
+            {
+              "proName": "FOREXCOM:NSXUSD",
+              "title": "US 100"
+            },
+            {
+              "proName": "FX_IDC:EURUSD",
+              "title": "EUR to USD"
+            },
+            {
+              "proName": "BITSTAMP:BTCUSD",
+              "title": "Bitcoin"
+            },
+            {
+              "proName": "BITSTAMP:ETHUSD",
+              "title": "Ethereum"
+            }
+          ],
+          "showSymbolLogo": true,
+          "colorTheme": "light",
+          "isTransparent": false,
+          "displayMode": "adaptive",
+          "locale": "en"
+        }
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
+    <div class="wallet_section">
+      <div class="flex_xhead">
+        <div>
+          <p>My Wallet</p>
+          <h1>$0</h1>
+        </div>
+
+        <div class="small_graph_image">
+            <img src="image/graph-small.png" alt="">
+          </div>
+      </div>
+      <div class="wallet_footer">
+        <button class="green">+@20.9%</button>
+        <p>Since Last week</p>
+        <button id="openModal" class="action_btn">
+            <i class="fa-solid fa-money-bill"></i>
+            Deposit Funds</button>
+      </div>
+    </div>
+
+    <div class="table_wrapper">
+      <table class="tx_table">
+        <caption>
+          <div class="caption">
+            <h3>Pending Deposits</h3>
+
+            <p>Deposit</p>
+          </div>
+        </caption>
+        <caption>
+          <div class="sub_header">
+            <div>
+
+                <p>Show</p>
+                <select name="" id="">
+                    <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        <p>entries</p>
+    </div>
+
+    <div>
+        <p>Search:</p>
+        <input type="text">
+    </div>
+          </div>
+        </caption>
+
+        <thead>
+          <tr>
+            <th>Date/Time  <i class="fa-solid fa-arrow-up-z-a"></i></i></th>
+            <th>Trans.ID <i class="fa-solid fa-arrow-up-z-a"></i></i></th>
+            <th>Amount <i class="fa-solid fa-arrow-up-z-a"></i></i></th>
+            <th>Coin <i class="fa-solid fa-arrow-up-z-a"></i></i></th>
+            <th>Status <i class="fa-solid fa-arrow-up-z-a"></i></i></th>
+            <th>Control <i class="fa-solid fa-arrow-up-z-a"></i></i></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Mon, 7 Aug 2023</td>
+            <td>dfx6187</td>
+            <td>$200,000</td>
+            <td>Bitcoin</td>
+            <td>
+              <div class="flex_x">
+                
+                <button class="status_btn"> Pending</button>
+              </div>
+            </td>
+            <td>
+              <button class="tb_btn">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mon, 7 Aug 2023</td>
+            <td>dfx6187</td>
+            <td>$200,000</td>
+            <td>Bitcoin</td>
+            <td>Pending</td>
+            <td>
+              <button class="tb_btn_view">Make payment</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mon, 7 Aug 2023</td>
+            <td>dfx6187</td>
+            <td>$200,000</td>
+            <td>Bitcoin</td>
+            <td>
+              <div class="flex_x">
+                <div class="rotate_spin">a</div>
+                <span> Pending</span>
+              </div>
+            </td>
+            <td>
+              <button class="tb_btn">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mon, 7 Aug 2023</td>
+            <td>dfx6187</td>
+            <td>$200,000</td>
+            <td>Bitcoin</td>
+            <td>Pending</td>
+            <td>
+              <button class="tb_btn_view">Make payment</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="7">
+              <div class="flex_fooyer">
+                <p>Showing 1 to 2 of 2 entries</p>
+                <div>
+                  <button>Previous</button>
+                  <button style="background-color: purple;color: white">5</button>
+                  <button>Next</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <div class="post">
+
+        <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+    {
+    "colorTheme": "light",
+    "dateRange": "12M",
+    "showChart": true,
+    "locale": "en",
+    "largeChartUrl": "",
+    "isTransparent": false,
+    "showSymbolLogo": true,
+    "showFloatingTooltip": false,
+    "width": "400",
+    "height": "460",
+    "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+    "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+    "gridLineColor": "rgba(240, 243, 250, 0)",
+    "scaleFontColor": "rgba(106, 109, 120, 1)",
+    "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+    "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+    "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+    "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+    "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+    "tabs": [
+      {
+        "title": "Indices",
+        "symbols": [
+          {
+            "s": "FOREXCOM:SPXUSD",
+            "d": "S&P 500"
+          },
+          {
+            "s": "FOREXCOM:NSXUSD",
+            "d": "US 100"
+          },
+          {
+            "s": "FOREXCOM:DJI",
+            "d": "Dow 30"
+          },
+          {
+            "s": "INDEX:NKY",
+            "d": "Nikkei 225"
+          },
+          {
+            "s": "INDEX:DEU40",
+            "d": "DAX Index"
+          },
+          {
+            "s": "FOREXCOM:UKXGBP",
+            "d": "UK 100"
+          }
+        ],
+        "originalTitle": "Indices"
+      },
+      {
+        "title": "Futures",
+        "symbols": [
+          {
+            "s": "CME_MINI:ES1!",
+            "d": "S&P 500"
+          },
+          {
+            "s": "CME:6E1!",
+            "d": "Euro"
+          },
+          {
+            "s": "COMEX:GC1!",
+            "d": "Gold"
+          },
+          {
+            "s": "NYMEX:CL1!",
+            "d": "Oil"
+          },
+          {
+            "s": "NYMEX:NG1!",
+            "d": "Gas"
+          },
+          {
+            "s": "CBOT:ZC1!",
+            "d": "Corn"
+          }
+        ],
+        "originalTitle": "Futures"
+      },
+      {
+        "title": "Bonds",
+        "symbols": [
+          {
+            "s": "CME:GE1!",
+            "d": "Eurodollar"
+          },
+          {
+            "s": "CBOT:ZB1!",
+            "d": "T-Bond"
+          },
+          {
+            "s": "CBOT:UB1!",
+            "d": "Ultra T-Bond"
+          },
+          {
+            "s": "EUREX:FGBL1!",
+            "d": "Euro Bund"
+          },
+          {
+            "s": "EUREX:FBTP1!",
+            "d": "Euro BTP"
+          },
+          {
+            "s": "EUREX:FGBM1!",
+            "d": "Euro BOBL"
+          }
+        ],
+        "originalTitle": "Bonds"
+      },
+      {
+        "title": "Forex",
+        "symbols": [
+          {
+            "s": "FX:EURUSD",
+            "d": "EUR to USD"
+          },
+          {
+            "s": "FX:GBPUSD",
+            "d": "GBP to USD"
+          },
+          {
+            "s": "FX:USDJPY",
+            "d": "USD to JPY"
+          },
+          {
+            "s": "FX:USDCHF",
+            "d": "USD to CHF"
+          },
+          {
+            "s": "FX:AUDUSD",
+            "d": "AUD to USD"
+          },
+          {
+            "s": "FX:USDCAD",
+            "d": "USD to CAD"
+          }
+        ],
+        "originalTitle": "Forex"
+      }
+    ]
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+
+      </div>
+
+      
+    </div>
+
+    <div class="modal_main" id="tsxModal">
+      <div class="wrapper_trx">
+        <div class="head_trx_modal">
+          <h1>Deposit Funds</h1>
+          <i id="close2">Close</i>
+        </div>
+
+        <br />
+
+        <div class="modal_body">
+          <input type="text" placeholder="Enter Amount" />
+          <br />
+          <br />
+          <select name="" id="">
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="usdt">USDT</option>
+          </select>
+        </div>
+
+        <div class="footer_trx_footer">
+          <button id="close" class="close">Close</button>
+          <button class="proceed">Proceed to payout</button>
+        </div>
+      </div>
+    </div>
+</div>
+  
+    
+       
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">&copy; Copyright 2023 by Libertex Trades. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  <script>
+    document.getElementById("openModal").addEventListener("click", (e) => {
+      document.getElementById("tsxModal").style.display = "block";
+    });
+    document.getElementById("close").addEventListener("click", (e) => {
+      document.getElementById("tsxModal").style.display = "none";
+    });
+    document.getElementById("close2").addEventListener("click", (e) => {
+      document.getElementById("tsxModal").style.display = "none";
+    });
+  </script>
+
+    <script src="dist/clipboard.min.js"></script>
+
+    <!-- 3. Instantiate clipboard -->
+    <script>
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+    </script>
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+
+
+</body>
+
+</html>

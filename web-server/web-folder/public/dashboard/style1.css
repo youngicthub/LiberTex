@@ -1,0 +1,11 @@
+.transaction_column{
+    margin-top: 30px;
+    background-color: #bbb;
+}
+
+.transaction_column table {
+    width: 100%;
+    color: black
+    ;
+
+}

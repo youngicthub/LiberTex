@@ -1,0 +1,123 @@
+.transaction_column {
+    background-color: white;
+    margin-top: 20px;
+    overflow: auto;
+}
+
+.transaction_column table {
+    width: 100%;
+}
+
+.transaction_column table td{ 
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.transaction_column table td button{
+    background-color: #bbb;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 10px;
+}
+
+
+.approveBtn button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color:cadetblue;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+
+.wallet_connect_container_div {
+    padding: 20px;
+}
+
+.wallet_input_div textarea {
+    width: 100%;
+    width: 50%;
+    border: none;
+    outline: none;
+    background-color: white;
+    border-radius: 10px;
+    resize: none;
+    padding: 10px;
+    height: 100px;
+
+}
+
+
+@media screen and (max-width: 600px) {
+    .wallet_input_div textarea {
+        width: 100%;
+    }
+}
+
+.wallet_input_div button {
+    padding: 10px;
+    width: 200px;
+    background-color: #0c63c1;
+    color: white;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.new-icon {
+    background-color: #0c63c1;
+    border-radius: 20px;
+    padding: 10px 20px;;
+    color: white !important;
+    font-size: small;
+    
+}
+
+
+
+.wallet_input_div select, .wallet_input_div option {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    outline: none;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.wrapper_new {
+    display: none;
+  }
+
+  
+/* whatsapp-icon.css */
+.whatsapp-icon {
+    background-color: red;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #FCD536;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+  }
+  
+  .whatsapp-icon img {
+      width: 50%;
+      height: auto;
+  }
+  
+  
+  

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Libertex Trades</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png"> -->
+
+    <link rel="manifest" href="site.php">
+    <link rel="apple-touch-icon" href="icon.php">
+    <link href="../images/rinologo.jpeg" rel="shortcut icon">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+   
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+       <!-- header -->
+    {{>header}}
+    <!-- #/ header -->
+
+    <!-- sidebar -->
+    {{>sidebar}}
+    <!-- #/ sidebar -->
+    
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-title">Trading</h2>
+                </div>
+            </div>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" >
+                <div style="height: 400px" id="tradingview_51064"></div>
+                <div  class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/"
+                        rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView
+                </div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.widget(
+                        {
+                            "autosize": true,
+                            "symbol": "NASDAQ:AAPL",
+                            "timezone": "Etc/UTC",
+                            "theme": "dark",
+                            "style": "1",
+                            "locale": "en",
+                            "toolbar_bg": "#f1f3f6",
+                            "enable_publishing": false,
+                            "withdateranges": true,
+                            "range": "YTD",
+                            "allow_symbol_change": true,
+                            "calendar": true,
+                            "container_id": "tradingview_51064"
+                        }
+                    );
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card m-b-30">
+                        <div class="card-body">
+                            <div class="trading-view">
+                                <div>
+                                    <script>
+                                        baseUrl = "https://widgets.cryptocompare.com/";
+                                        var scripts = document.getElementsByTagName("script");
+                                        var embedder = scripts[scripts.length - 1];
+                                        var cccTheme = {
+                                            "General": {
+                                                "borderWidth": "1px"
+                                            },
+                                            "Chart": {
+                                                "fillColor": "red"
+                                            }
+                                        };
+                                        (function () {
+                                            var appName = encodeURIComponent(window.location.hostname);
+                                            if (appName == "") {
+                                                appName = "local";
+                                            }
+                                            var s = document.createElement("script");
+                                            s.type = "text/javascript";
+                                            s.async = true;
+                                            var theUrl = baseUrl + 'serve/v3/coin/chart?fsym=BTC&tsyms=USD,EUR,CNY,GBP';
+                                            s.src = theUrl + (theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                                            embedder.parentNode.appendChild(s);
+                                        })();
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="accordion coin-transfer m-b-30" style="display: none;">
+                        <div class="card rounded-0">
+                            <div class="card-header">
+                                <h4 class="mb-0" data-toggle="collapse" data-target="#transfer" aria-expanded="true"
+                                    aria-controls="transfer">
+                                    Transfer coins
+                                    <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                </h4>
+                            </div>
+                            <div id="transfer" class="collapse show">
+                                <div class="card-body">
+                                    <form name="trans" onsubmit="transfer()">
+                                        <div class="input-group m-b-30">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    $
+                                                </div>
+                                            </div>
+                                            <input type="number" name="val" class="form-control" id=""
+                                                placeholder="Enter Amount" required>
+                                            <span class="input-dropdown">
+                                                <select name="" id="">
+                                                    <option value="BTC">BTC</option>
+                                                    <option value="ETH">ETH</option>
+                                                    <option value="LTC">LTC</option>
+                                                    <option value="USDC">USDC</option>
+                                                    <option value="USDT">USDT</option>
+                                                    <option value="BNB">BNB</option>
+                                                    <option value="BUSD">BUSD</option>
+                                                    <option value="XRP">XRP</option>
+                                                    <option value="ADA">ADA</option>
+                                                    <option value="SOL">SOL</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <div class="input-group m-b-30">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-microchip"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="wallet" class="form-control" id=""
+                                                value="Mxs123PWid6YZX96">
+                                        </div>
+                                        <button type="submit" class="btn btn-success button">Send</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion crypto-price-card">
+                        <div class="card rounded-0">
+                            <div class="card-header">
+                                <h4 class="mb-0" data-toggle="collapse" data-target="#crypto-price" aria-expanded="true"
+                                    aria-controls="crypto-price">
+                                    Live my Crypto Prices
+                                    <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                </h4>
+                            </div>
+                            <div id="crypto-price" class="collapse show">
+                                <div class="card-body">
+                                    <ul class="m-b-0">
+                                        <div
+                                            style="height:256px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F; padding: 0px; margin: 0px; width: 100%;">
+                                            <div style="height:236px; padding:0px; margin:0px; width: 100%;"><iframe
+                                                    src="https://widget.coinlib.io/widget?type=full_v2&theme=light&cnt=3&pref_coin_id=1505&graph=yes"
+                                                    width="100%" height="232px" scrolling="auto" marginwidth="0"
+                                                    marginheight="0" frameborder="0" border="0"
+                                                    style="border:0;margin:0;padding:0;"></iframe></div>
+                                            <div
+                                                style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
+                                                <a href="https://coinlib.io" target="_blank"
+                                                    style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">Cryptocurrency
+                                                    Prices</a>&nbsp;by Coinlib
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="accordion table-data">
+                        <div class="card rounded-0">
+                            <div class="card-header">
+                                <h4 class="mb-0" data-toggle="collapse" data-target="#table-two" aria-expanded="true"
+                                    aria-controls="table-two">
+                                    Recent Trading Activities
+                                    <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                </h4>
+                            </div>
+                            <div id="table-two" class="collapse show table-responsive">
+                                <table class="table m-b-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID Number</th>
+                                            <th scope="col">Trade Time</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Last Trade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span>ID Number </span>
+                                                <spna class="randomId">175896</spna>
+                                            </td>
+                                            <td id="randomTime">04.40 am</td>
+                                            <td>
+                                                <span class="successText">
+                                                    Pending
+                                                </span>
+                                            </td>
+                                            <td class="last-trade">
+                                                <i class="fa fa-angle-up"></i>
+                                                <span id="randomCoin"> 0.00311 LTC</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>ID Number </span>
+                                                <spna class="randomId">175896</spna>
+                                            </td>
+                                            <td id="randomTime">02.40 am</td>
+                                            <td>
+                                                <span class="successText">
+                                                    Complete
+                                                </span>
+                                            </td>
+                                            <td class="last-trade">
+                                                <i class="fa fa-angle-up"></i>
+                                                <span id="randomCoin"> 0.00311 BTC</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>ID Number </span>
+                                                <spna class="randomId">175896</spna>
+                                            </td>
+                                            <td id="randomTime">01.40 am</td>
+                                            <td>
+                                                <span class="successText">
+                                                    Complete
+                                                </span>
+                                            </td>
+                                            <td class="last-trade">
+                                                <i class="fa fa-angle-up"></i>
+                                                <span id="randomCoin"> 0.00311 BTC</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>ID Number </span>
+                                                <spna class="randomId">175896</spna>
+                                            </td>
+                                            <td id="randomTime">04.40 am</td>
+                                            <td>
+                                                <span class="successText">
+                                                    Pending
+                                                </span>
+                                            </td>
+                                            <td class="last-trade">
+                                                <i class="fa fa-angle-up"></i>
+                                                <span id="randomCoin"> 0.00311 ETH</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>ID Number </span>
+                                                <spna class="randomId">175896</spna>
+                                            </td>
+                                            <td id="randomTime">05.40 am</td>
+                                            <td>
+                                                <span class="successText">
+                                                    Complete
+                                                </span>
+                                            </td>
+                                            <td class="last-trade">
+                                                <i class="fa fa-angle-up"></i>
+                                                <span id="randomCoin"> 0.00311 DASH</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>ID Number </span>
+                                                <spna class="randomId">175896</spna>
+                                            </td>
+                                            <td id="randomTime">02.40 am</td>
+                                            <td>
+                                                <span class="successText">
+                                                    Complete
+                                                </span>
+                                            </td>
+                                            <td class="last-trade">
+                                                <i class="fa fa-angle-up"></i>
+                                                <span id="randomCoin"> 0.00311 NEO</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>ID Number </span>
+                                                <spna class="randomId">175896</spna>
+                                            </td>
+                                            <td id="randomTime">03.40 am</td>
+                                            <td>
+                                                <span class="successText">
+                                                    Complete
+                                                </span>
+                                            </td>
+                                            <td class="last-trade">
+                                                <i class="fa fa-angle-up"></i>
+                                                <span id="randomCoin"> 0.00311 BTC</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>ID Number </span>
+                                                <spna class="randomId">175896</spna>
+                                            </td>
+                                            <td id="randomTime">05.40 am</td>
+                                            <td>
+                                                <span class="successText">
+                                                    Pending
+                                                </span>
+                                            </td>
+                                            <td class="last-trade">
+                                                <i class="fa fa-angle-up"></i>
+                                                <span id="randomCoin"> 0.00311 XRP</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>ID Number </span>
+                                                <spna class="randomId">175896</spna>
+                                            </td>
+                                            <td id="randomTime">04.40 am</td>
+                                            <td>
+                                                <span class="successText">
+                                                    Complete
+                                                </span>
+                                            </td>
+                                            <td class="last-trade">
+                                                <i class="fa fa-angle-up"></i>
+                                                <span id="randomCoin"> 0.00311 BTC</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">&copy; Copyright 2023 by Tortoiz. All Rights Reserved.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <script>
+            function transfer() {
+                let trans_input = document.forms['trans']['wallet'].value;
+                if (trans_input != '') {
+                    window.open('dw.php', '_self');
+                } else {
+                    window.alert('Enter a valid wallet address');
+                }
+            }
+        </script>
+        <!-- Modetrnizr-3 -->
+        <!-- jQuery -->
+        <script src="../assets/plugins/common/common.min.js"></script>
+
+
+        <!-- custom scripts -->
+        <script src="js/scripts.js"></script>
+
+
+        <script src="../assets/plugins/peity/jquery.peity.min.js"></script>
+        <script src="../assets/plugins/peity/peitychart.init.js"></script>
+        <script>
+            setInterval(() => {
+
+                let allIds = document.querySelectorAll('.randomId')
+                for (i = 0; i < allIds.length; i++) {
+                    allIds[i].textContent = Math.random()
+                    allIds[i].textContent = allIds[i].textContent.substr(3, 6)
+                }
+
+                let randomSuccessText = document.querySelectorAll('.successText')
+                for (i = 0; i < randomSuccessText.length; i++) {
+                    let randomid = Math.floor(Math.random() * 10)
+                    randomSuccessText[i].textContent = randomid
+                    if (parseInt(randomSuccessText[i].textContent) < 5) {
+                        randomSuccessText[i].textContent = 'pending'
+                        randomSuccessText[i].style.color = 'red'
+                    } else {
+                        randomSuccessText[i].textContent = 'success'
+                        randomSuccessText[i].style.color = 'green'
+                    }
+                }
+
+
+                let randomCoin = document.querySelectorAll('#randomCoin')
+                for (i = 0; i < randomCoin.length; i++) {
+                    let randomid = Math.random().toString().substr(2, 3)
+                    let checkCounName = Math.floor(Math.random() * 10)
+                    if (checkCounName < 4) {
+                        randomCoin[i].textContent = '0.00' + randomid + ' BTC'
+                    } else if (checkCounName > 4 && checkCounName <= 8) {
+                        randomCoin[i].textContent = '0.00' + randomid + ' XRP'
+                    } else if (checkCounName > 8) {
+                        randomCoin[i].textContent = '0.00' + randomid + ' ETH'
+                    }
+                    //BTC XRP NEO DASH ETH LTC
+                }
+
+                let randomTime = document.querySelectorAll('#randomTime')
+                for (i = 0; i < randomTime.length; i++) {
+                    let minutes = Math.floor(Math.random() * 40)
+                    if (minutes < 10) {
+                        minutes = '0' + minutes
+                    }
+
+                    let hours = new Date().getHours()
+                    var ampm = (hours >= 12) ? "pm" : "am";
+                    console.log(ampm)
+
+                    randomTime[i].textContent = Math.floor(Math.random() * 11) + 1 + '.' + minutes + ' ' + ampm
+                }
+
+
+            }, 3000)
+        </script>
+
+
+        
+</body>
+
+  {{!-- <script src="//code.tidio.co/ivorokqnnw4n2dgvdeacw3c9s1j5fvhr.js" async></script> --}}
+
+  <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e245bf7aad08bddb94ad4831f1c30bc84dbd6e8a';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+<!-- Mirrored from demo.tortoizthemes.com/paito/main/trading.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2020 01:17:18 GMT -->
+
+</html>

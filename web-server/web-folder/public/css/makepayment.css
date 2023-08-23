@@ -1,0 +1,150 @@
+
+button {
+    cursor: pointer;
+}
+.body_wrapper {
+    padding: 10px;
+    background-color: #fff;
+}
+
+main {
+    display: flex;
+    /* min-height: 100vh; */
+}
+
+@media screen and (max-width: 600px){
+    main {
+        flex-direction: column;
+    }
+}
+
+.left_container  {
+    flex-basis: 40%;
+    border: 1px solid #ddd;
+    margin: 10px;
+}
+
+.right_container {
+    flex-basis: 60%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.list_flex {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.caution {
+    width: 100%;
+    padding: 20px;
+    background-color: #fcd43658;
+
+    text-align: center;
+}
+
+.left_wrapper {
+    padding: 20px;
+}
+
+.left_wrapper h2 , .left_wrapper p {
+    margin-bottom: 19px;
+}
+
+._right_header {
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+}
+
+.coin_wrapper {
+    text-align: center;
+    line-height: 2;
+}
+.coin_wrapper img {
+    width: 100px;
+    height: 100px;
+    margin-top: 25px;
+}
+
+.input_wrapper {
+    position: relative;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.input_wrapper input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 30px;
+    border: none;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+}
+
+.copyBtb button {
+    padding: 10px;
+    background-color: #fcd436be;
+    color: black;
+    position: absolute;
+    top: 1.2px;
+    right: 0px;
+    border: none;
+    outline: none;
+}
+
+.input_icon {
+    position: absolute;
+    left: 10px;
+    top:10px ;
+}
+
+
+.proof_input input {
+    width: 100%;
+    padding: 20px;
+    background-color: #ddd;
+}
+
+.proof_input button {
+    width: 100%;
+    padding: 20px;
+    background-color: #fcd436be;
+    border: none;
+    outline: none;
+}
+
+.caution1 {
+    padding: 10px;
+    background-color: #fcd43658;
+}
+
+.caution1 p {
+    line-height: 2;
+}
+.status_section {
+    padding: 10px;
+}
+.status_section img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.statuc_action {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(100, 148, 237, 0.914);
+    color: white;
+    cursor:not-allowed;
+}
+
+.statuc_action h3 {
+    color: white;
+}

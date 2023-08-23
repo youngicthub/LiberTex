@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Rinotrades</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png"> -->
+
+    <link rel="manifest" href="site.php">
+    <link rel="apple-touch-icon" href="icon.php">
+    <link href="../images/rinologo.jpeg" rel="shortcut icon">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script
+    src="//code.tidio.co/hx0unmnx4lu3orzjfgwj5vj9v1rubl5b.js"
+    async
+  ></script>   
+    <script>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement(
+            {
+              pageLanguage: "en",
+            },
+            "google_translate_element"
+          );
+        }
+      </script>
+      <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    <div class="header">
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="/">
+                    <!-- <i class="icofont icofont-dart"></i> -->
+                    <img src="../assets/images/logo-mini.png" alt="">
+                    <span class="brand-title">Rinotrades</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="header-content">
+            <div class="header-left d-flex">
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+
+                </div>
+                <div class="nav-search-box">
+                    <i class="fa fa-search"></i>
+                    <input type="search" placeholder="Search">
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="navbar-custom-menu pull-right d-flex nav-right">
+            
+            <div class="dropdown">
+                <a class="dropdown-toggle user-profile-dropdown" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="user-img">
+                        <img src="../assets/images/user.png" alt="">
+                    </span>
+                    <span class="user-name">Justice Ogwe</span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="profile.html">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i> Profile
+                    </a>
+                    <a class="dropdown-item" href="profile.html">
+                        <i class="fa fa-cog"></i> Setting
+                    </a>
+                    <a class="dropdown-item" href="../signin.html">
+                        <i class="fa fa-power-off" aria-hidden="true"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- #/ header -->
+
+
+    <!-- sidebar -->
+    <div class="nk-sidebar">
+        <div class="nk-nav-scroll">
+            <ul class="metismenu" id="menu">
+                <li>
+                    <a href="/dashboard/dashboard.html" aria-expanded="true">
+                        <i class="fa fa-dashboard"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/trading.html" aria-expanded="false">
+                        <i class="fa fa-line-chart"></i>
+                        <span class="nav-text">Trading</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/dashboard/transaction.html" aria-expanded="false">
+                        <i class="fa fa-bolt"></i>
+                        <span class="nav-text">Transactions</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/deposit.html" aria-expanded="false">
+                        <i class="fa fa-btc"></i>
+                        <span class="nav-text">Deposit / Withdrawal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/dashboard/wallet.html" aria-expanded="false">
+                        <i class="fa fa-credit-card"></i>
+                        <span class="nav-text">My Wallet</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/dashboard/profile.html" aria-expanded="false">
+                        <i class="fa fa-user-circle"></i>
+                        <span class="nav-text">Profile</span>
+                    </a>
+                </li>
+                
+                 <li>
+                    <a href="/dashboard/account.html" aria-expanded="false">
+                        <i class="fa fa-bank"></i>
+                        <span class="nav-text">Accounts</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- #/ nk nav scroll -->
+    </div>
+    <!-- #/ sidebar -->
+
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-title">Add Accounts</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-25">
+                            <div class="card-title mt-4 pl-4">
+                                <h4>Existing accounts</h4>
+                            </div>
+                            <div id="table-two" class="card-body table-responsive">
+                                <table class="table m-b-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Acc No. /Wallet</th>
+                                            <th scope="col">Acc Name/Type</th>
+                                            <th scope="col">Bank Name/Crypto</th>
+                                            <th scope="col">Routing No.</th>
+                                            <th scope="col"><input type="radio"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                                            </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="login-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-8 mb-4">
+                        <div class="card register-card">
+                            <div class="card-body">
+                                <h2 class="card-title">Add Bank Account</h2>
+                                <form method="post">
+                                    <div class="form-group">
+                                        <input type="number" name="r_number" maxlength="12" class="form-control m-b-30" aria-describedby="emailHelp" placeholder="Routing Number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" maxlength="12" name="a_number" class="form-control m-b-30" aria-describedby="emailHelp" placeholder="Account Number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="b_name"  class="form-control m-b-30" placeholder="Bank Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="a_name" class="form-control m-b-30" placeholder="Account Name" required>
+                                    </div>
+                                    <button type="submit" name="save_account" class="btn btn-block bg-success m-b-30 submit">Add Account</button>
+                                    <a href="dw.php" class="register-btn">
+                                        Deposit Now
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-4">   
+                        <div class="card register-card">
+                            <div class="card-body">
+                                <h2 class="card-title">Add Crypto Wallet</h2>
+                                <form method="post">
+                                    <div class="form-group">
+                                        <input type="text" name="wallet_addr" class="form-control m-b-30" aria-describedby="emailHelp" placeholder="Wallet Address">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <select name="coin" class="form-control m-b-30">
+                                            <option value="BTC">BTC</option>
+                                            <option value="ETH">ETH</option>
+                                            <option value="LTC">LTC</option>
+                                        </select>
+                                    </div>
+
+                                    <button type="submit" name="save_wallet" class="btn btn-block bg-success m-b-30 submit">Add Waallet</button>
+                                    <a href="dw.php" class="register-btn">
+                                        Deposit Now
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="marketcap-category-chart">
+
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header">
+                                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <table class="table table-responsive">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="coin-serial" scope="col">01</td>
+                                                    <td class="coin-name" scope="col">
+                                                        <i class="cc BTC"></i> Bitcoin
+                                                    </td>
+                                                    <td class="coin-value" scope="col">$130,525,066,827
+                                                    </td>
+                                                    <td class="coin-price" scope="col">$7,745.91</td>
+                                                    <td class="coin-volume" scope="col">$11,747,400,000</td>
+                                                    <td class="coin-supply" scope="col">16,850,837 BTC</td>
+                                                    <td class="price-change" scope="col">+ 23.86%</td>
+                                                    <td class="coin-graph" scope="col">
+                                                        <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i> Price Graph</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </a>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="trading-view">
+                                            <div>
+                                                <script>
+                                                    baseUrl = "https://widgets.cryptocompare.com/";
+                                                    var scripts = document.getElementsByTagName("script");
+                                                    var embedder = scripts[scripts.length - 1];
+                                                    var cccTheme = {
+                                                        "General": {
+                                                            "borderWidth": "1px"
+                                                        },
+                                                        "Chart": {
+                                                            "fillColor": "rgba(225,180,38,0.2)"
+                                                        }
+                                                    };
+                                                    (function() {
+                                                        var appName = encodeURIComponent(window.location.hostname);
+                                                        if (appName == "") {
+                                                            appName = "local";
+                                                        }
+                                                        var s = document.createElement("script");
+                                                        s.type = "text/javascript";
+                                                        s.async = true;
+                                                        var theUrl = baseUrl + 'serve/v3/coin/chart?fsym=BTC&tsyms=USD,EUR,CNY,GBP';
+                                                        s.src = theUrl + (theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                                                        embedder.parentNode.appendChild(s);
+                                                    })();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">&copy; Copyright 2018 by Rinotrades. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+
+
+</body>
+
+</html>

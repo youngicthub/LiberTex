@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Libertex Trades</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png"> -->
+
+    <link rel="manifest" href="site.php">
+    <link rel="apple-touch-icon" href="icon.php">
+    <link href="../images/rinologo.jpeg" rel="shortcut icon">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+   
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    {{>header}}
+    <!-- #/ header -->
+
+
+    <!-- sidebar -->
+    {{>sidebar}}
+    <!-- #/ sidebar -->
+
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="text-align: center; color: green">{{successMessage}}</h2>
+                    <p style="text-align: center; color: cornflowerblue">{{successNote}}</p>
+                    <h2 class="page-title">Profile</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="forms-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="accordion table-data">
+                            <div class="card rounded-0">
+                                <div class="card-header">
+                                    <h4 class="mb-0" data-toggle="collapse" data-target="#basic-form"
+                                        aria-expanded="true" aria-controls="basic-form">
+                                        Personal Infomation
+                                        <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                    </h4>
+                                </div>
+                                <div id="basic-form" class="collapse show">
+                                    <div class="card-body">
+                                        <form method="post" action="/updateProfile">
+                                            <div class="form-row">
+
+                                                <!-- First name -->
+                                                <div class="col-lg-6 m-b-30">
+                                                    <h6>First Name</h6>
+                                                    <input type="text" name="firstname" value="{{user.firstname}}"
+                                                        class="form-control" placeholder="First name" required>
+                                                </div>
+
+                                                <!-- Last name -->
+                                                <div class="col-lg-6 m-b-30">
+                                                    <h6>Last Name</h6>
+                                                    <input type="text" name="lastname" value="{{user.lastname}}"
+                                                        class="form-control" placeholder="First name" required>
+                                                </div>
+
+                                                <!-- Email -->
+                                                <div class="col-lg-6 m-b-30">
+                                                    <h6>Email</h6>
+                                                    <input type="email" name="email" value="{{user.email}}"
+                                                        class="form-control" placeholder="First name" required>
+                                                </div>
+
+                                                <!-- Phone -->
+                                                <div class="col-lg-6 m-b-30">
+                                                    <h6>Phone</h6>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="icofont icofont-phone"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="number" name="phone_number"
+                                                            value="{{user.phone_number}}" class="form-control" id=""
+                                                            placeholder="phone" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" name="profile_data" value="up"
+                                            class="btn btn-success btn-block">Save</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="accordion table-data">
+                            <div class="card rounded-0">
+                                <div class="card-header">
+                                    <h4 class="mb-0" data-toggle="collapse" data-target="#basic-form"
+                                        aria-expanded="true" aria-controls="basic-form">
+                                        Update Password
+                                        <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                    </h4>
+                                </div>
+                                <div id="basic-form" class="collapse show">
+                                    <div class="card-body">
+                                        <form method="post" action="updatePassword">
+                                            <div class="form-row">
+
+                                                <!-- First name -->
+                                                <div class="col-lg-6 m-b-30">
+                                                    <h6>Current Password</h6>
+                                                    <input type="password" name="password" value=""
+                                                        placeholder="Type your current password" class="form-control"
+                                                        required>
+                                                    <p style="color: red;">{{errorWrong}}</p>
+                                                </div>
+
+                                                <!-- Last name -->
+                                                <div class="col-lg-6 m-b-30">
+                                                    <h6>New Password</h6>
+                                                    <input type="password" name="new_pass" minlength="5"
+                                                        placeholder="Password" class="form-control" required>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" name="update_pass" value="update"
+                                            class="btn btn-success btn-block">Update</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {{!-- two factor auth --}}
+            {{!-- <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="accordion table-data">
+                            <div class="card rounded-0">
+                                <div class="card-header">
+                                    <h4 class="mb-0" data-target="#basic-form" aria-expanded="true"
+                                        aria-controls="basic-form">
+                                        Two Factor Authentication
+                                        <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                    </h4>
+                                </div>
+                                <div id="basic-form" class="collapse show">
+                                    <div class="card-body">
+                                        <form method="post" action="/enable-two-factor-auth">
+                                            <div class="form-row">
+
+                                                <!-- First name -->
+                                                <div class="col-lg-6 m-b-30">
+                                                    <h6 id="titleTopic">To begin utilizing two factor authentication,
+                                                        please enter your password. </h6>
+                                                    <div>
+                                                        <input type="checkbox" name="checkType" id="toggleBtn"
+                                                            style="width: 30px; height: 40px; cursor: pointer">
+                                                    </div>
+
+
+                                                    <input type="password" name="code" value="" id="secretCodeInput"
+                                                        placeholder="Type a secret code" class="form-control" required>
+                                                    <p style="color: red;">{{error}}</p>
+                                                </div>
+
+                                                <!-- Last name -->
+                                                <div class="col-lg-6 m-b-30" style="display: none;">
+                                                 
+                                                </div>
+                                            </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="card-footer" id="update2factorAuth">
+                                        <button type="submit" name="update_pass" value="update"
+                                            class="btn btn-success btn-block">Enable</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">&copy; Copyright 2023 by Libertex Trades. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+      <a href="https://api.whatsapp.com/send?phone=447398005228&text=Hello%21" target="_blank">
+        <div class="whatsapp-icon">
+            <img src="/images/WhatsApp.svg.webp" alt="WhatsApp Icon">
+        </div>
+    </a>
+
+
+    {{!-- TRwo fact auth --}}
+    <script>
+        let toggleBtn = document.getElementById('toggleBtn')
+        let secretCodeInput = document.getElementById('secretCodeInput')
+        let update2factorAuth = document.getElementById('update2factorAuth')
+        let titleTopic = document.getElementById('titleTopic')
+
+        toggleBtn.addEventListener('click', e => {
+            let type = e.target.checked
+            console.log(type)
+            if (type) {
+                secretCodeInput.style.display = 'none'
+                update2factorAuth.style.display = 'none'
+            } else {
+                secretCodeInput.style.display = 'block'
+                update2factorAuth.style.display = 'block'
+
+                //Send a post rquest tp remove tow factor
+                fetch('/disable-two-factor-auth', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        window.location.reload()
+
+                    }).catch(error => {
+                        window.location.reload()
+                    })
+            }
+        })
+
+
+
+
+        fetch('/check-two-factor')
+            .then(res => res.json())
+            .then(user => {
+                if (user.has_two_factor_auth === 'true') {
+                    console.log('Checked')
+                    secretCodeInput.style.display = 'none'
+                    update2factorAuth.style.display = 'none'
+                    toggleBtn.setAttribute('checked', true)
+                    titleTopic.textContent = 'By clicking the check button below, two factor authentication can be disabled.'
+
+                } else {
+                    secretCodeInput.style.display = 'block'
+                    toggleBtn.setAttribute('checked', false)
+                    update2factorAuth.style.display = 'block'
+                    toggleBtn.style.display = 'none'
+                }
+            }).catch(error => {
+                console.log(error)
+            })
+
+
+
+    </script>
+
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+
+
+</body>
+  {{!-- <script src="//code.tidio.co/ivorokqnnw4n2dgvdeacw3c9s1j5fvhr.js" async></script> --}}
+  <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'e245bf7aad08bddb94ad4831f1c30bc84dbd6e8a';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+</html>
